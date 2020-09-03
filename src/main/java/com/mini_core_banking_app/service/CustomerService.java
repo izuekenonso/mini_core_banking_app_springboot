@@ -31,8 +31,8 @@ public class CustomerService {
         customerRepository.deleteById(id);
     }
     
-    public Customer getCustomerByAccountNumber(String account_number) {
-    	Customer customer = customerRepository.findByAccountNumber(account_number);
+    public Customer getCustomerByAccountNumber(String accountNumber) {
+    	Customer customer = customerRepository.findByAccountNumber(accountNumber);
     	return customer;
     }
 }

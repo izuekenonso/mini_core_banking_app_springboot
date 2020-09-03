@@ -20,7 +20,7 @@
 	      <a class="navbar-brand" href="#">Mini core banking app spring boot</a>
 	    </div>
 	    <ul class="nav navbar-nav">
-	      <li><a href="/logout">Logout</a></li>
+	      <li><a href="/admin/home">Menu</a></li>
 	    </ul>
 	  </div>
 	</nav>
@@ -30,9 +30,6 @@
 
 	    <div class="col-md-10 col-md-offset-1">
 	    
-		  <a class="btn btn-primary" href="#">Add New Customer</a>
-	      <br/><br/>
-    	
 	      <table class="table table-bordered">
 	      
 	      	<thead>
@@ -40,18 +37,14 @@
 	            <th>Email</th>
 	            <th>Account Number</th>
 	            <th>Account Balance</th>
-	            <th>Actions</th>
 	      	</thead>
 		    <tbody>
 		     	<tr th:each="customer : ${listCustomers}">
-	                <td th:text="${customer.firstname +' '+ customer.lastname}">Name</td>
+	                <td th:text="${customer.firstName +' '+ customer.lastName}">Name</td>
 	                <td th:text="${customer.email}">Email</td>
-	                <td th:text="${customer.account_number}">Account Number</td>
-	                <td th:text="${customer.account_balance}">Account Balance</td>
-	                <td>
-	                    <a>Edit</a>
-	                    <a>Delete</a>
-	                </td>
+	                <td th:text="${customer.accountNumber}">Account Number</td>
+	                <td th:text="${customer.accountBalance}">Account Balance</td>
+
 	            </tr>
 		      
 		    </tbody>

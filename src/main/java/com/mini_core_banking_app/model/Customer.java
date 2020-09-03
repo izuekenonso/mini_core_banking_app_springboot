@@ -9,17 +9,17 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "customers", uniqueConstraints = { @UniqueConstraint(columnNames = "email"), @UniqueConstraint(columnNames = "account_number") } )
+@Table(name = "customers", uniqueConstraints = { @UniqueConstraint(columnNames = "email"), @UniqueConstraint(columnNames = "accountNumber") } )
 public class Customer {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String firstname;
-	private String lastname;
+	private String firstName;
+	private String lastName;
 	private String email;
-	private String account_number;
-	private String account_balance;
+	private String accountNumber;
+	private double accountBalance;
 	
 	
 	public Customer() {
@@ -27,13 +27,13 @@ public class Customer {
 	}
 
 
-	public Customer(String firstname, String lastname, String email, String account_number, String account_balance) {
+	public Customer(String firstName, String lastName, String email, String accountNumber, double accountBalance) {
 		super();
-		this.firstname = firstname;
-		this.lastname = lastname;
+		this.firstName = firstName;
+		this.lastName = lastName;
 		this.email = email;
-		this.account_number = account_number;
-		this.account_balance = account_balance;
+		this.accountNumber = accountNumber;
+		this.accountBalance = accountBalance;
 	}
 
 
@@ -47,23 +47,23 @@ public class Customer {
 	}
 
 
-	public String getFirstname() {
-		return firstname;
+	public String getFirstName() {
+		return firstName;
 	}
 
 
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
 
-	public String getLastname() {
-		return lastname;
+	public String getLastName() {
+		return lastName;
 	}
 
 
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
 
@@ -77,23 +77,23 @@ public class Customer {
 	}
 
 
-	public String getAccount_number() {
-		return account_number;
+	public String getAccountNumber() {
+		return accountNumber;
 	}
 
 
-	public void setAccount_number(String account_number) {
-		this.account_number = account_number;
+	public void setAccountNumber(String accountNumber) {
+		this.accountNumber = accountNumber;
 	}
 
 
-	public String getAccount_balance() {
-		return account_balance;
+	public double getAccountBalance() {
+		return accountBalance;
 	}
 
 
-	public void setAccount_balance(String account_balance) {
-		this.account_balance = account_balance;
+	public void setAccountBalance(double accountBalance) {
+		this.accountBalance = accountBalance;
 	}
 	
 	

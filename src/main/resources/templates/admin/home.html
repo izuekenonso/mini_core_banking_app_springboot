@@ -26,13 +26,31 @@
 	</nav>
 	
 	<div class="col-md-12">
- 		<h3 style="text-align: center;">Welcome <span sec:authentication="principal.username"></span></h3>
+ 		<h3>Welcome <span sec:authentication="principal.username"></span></h3>
  		<br>
  		<div class="clearfix"></div>
-      	<p style="text-align: center;"><a href="/admin/customer/index">Customer</a></p>
-      	<p style="text-align: center;"><a>Deposit</a></p>
-      	<p style="text-align: center;"><a>Withdrawal</a></p>
-      	<p style="text-align: center;"><a>Transfer</a></p>
+      	<p><a href="/admin/customer/index">See All Customers/Accounts</a></p>
+      	<p><a href="/admin/customer/add">Add New Customer/Account</a></p>
+      	
+      	<hr>
+      	
+      	<div class="col-md-4">
+      	
+      		<h4>To make deposit or withdrawal or transfer, Enter account number below:</h4>
+      		<hr>
+      		<div th:if="${param.no_data_found}">
+				<div class="alert alert-danger">No data found</div>
+			</div>
+	      	<form th:action="@{/admin/customer}" method="get">
+	      	
+	      		<div class="form-group">
+				    <input type="text" class="form-control" name="accountNumber" placeholder="Enter account number" required />
+				</div>
+	      		
+	      		<button type="submit" class="btn btn-success btn-block registerbtn">Find</button>
+	      		
+	      	</form>
+      	</div>
       	
 	</div>
 
