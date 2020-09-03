@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Registration</title>
+<title>Login :: Mini core banking app</title>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
 
@@ -26,35 +26,34 @@
 	  </div>
 	</nav>
 	
-	<div class="col-md-6 col-md-offset-3">
-		 <form th:action="@{/login}" method="post"">
-
-		    <h1>Register</h1>
-		    <p>Please fill in this form to create an account.</p>
-		    <hr>
-			
-			<div class="form-group">
-				<label for="firstname"><b>Firstname</b></label>
-			    <input type="text" class="form-control" th:field="*{firstName}" id="firstname" required>
-			</div>
-	 	
-	 		<div class="form-group">
-				<label for="lastname"><b>Lastname</b></label>
-			    <input type="text" class="form-control" th:field="*{lastName}" id="lastname" required>
-			</div>
+	<div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
+	
+		<div th:if="${param.error}">
+			<div class="alert alert-danger">Invalid username or password</div>
+		</div>
 		
+		<div th:if="${param.logout}">
+			<div class="alert alert-info">You have logged out</div>
+		</div>
+		
+		
+		 <form th:action="@{/login}" method="post">  
+
+		    <h1>Login</h1>
+		    <hr>
+
 			<div class="form-group">
-			    <label for="email"><b>Email</b></label>
-			    <input type="text" class="form-control" th:field="*{email}" id="email" required>
+			    <label for="username"><b>Username</b></label>
+			    <input type="text" class="form-control" name="username" id="username" required>
 			</div>
 			
 			<div class="form-group">
 			    <label for="psw"><b>Password</b></label>
-			    <input type="password" class="form-control" th:field="*{password}" id="psw" required>
+			    <input type="password" class="form-control" name="password" id="psw" required>
 	 		</div>
 		
 		    
-		    <button type="submit" class="btn btn-success btn-block registerbtn">Register</button>
+		    <button type="submit" class="btn btn-success btn-block registerbtn">Login</button>
 
 			
 			<br>

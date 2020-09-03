@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
 <meta charset="ISO-8859-1">
 <title>Home :: Mini core banking app</title>
@@ -20,18 +20,20 @@
 	      <a class="navbar-brand" href="#">Mini core banking app spring boot</a>
 	    </div>
 	    <ul class="nav navbar-nav">
-	      <li><a href="/login">Login</a></li>
-	      <li><a href="/registration">Register</a></li>
+	      <li><a href="/logout">Logout</a></li>
 	    </ul>
 	  </div>
 	</nav>
 	
 	<div class="col-md-12">
- 		<h3 style="text-align: center;">Welcome to spring boot mini core banking app</h3>
+ 		<h3 style="text-align: center;">Welcome Admin: <span sec:authentication="principal.username"></span></h3>
  		<br>
  		<div class="clearfix"></div>
-      	<p style="text-align: center;"><a th:href="@{/login}">Login</a></p>
-      	<p style="text-align: center;"><a th:href="@{/registration}">Register</a></p>
+      	<p style="text-align: center;"><a>Add Customer</a></p>
+      	<p style="text-align: center;"><a>Deposit</a></p>
+      	<p style="text-align: center;"><a>Withdrawal</a></p>
+      	<p style="text-align: center;"><a>Transfer</a></p>
+      	
 	</div>
 
 </body>
