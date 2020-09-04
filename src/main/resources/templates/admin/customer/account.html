@@ -60,12 +60,20 @@
 	            </tr>
 		  </table>
 		  
+		  
+		  
+		  <br/><br/>
+	       <hr>
+		   <a href="#">See All Transactions</a>
+		   
+		   
+		  
 	       <br/><br/>
 	       <h4>Operations</h4>
 	       <hr>
-		   <a class="btn btn-success" href="#">Deposit</a>
-		   <a class="btn btn-info" href="#">Withdrawal</a>
-		   <a class="btn btn-primary" href="#">Transfer</a>
+		   <a class="btn btn-success" disabled href="#">Deposit</a>
+		   <a class="btn btn-info" disabled href="#">Withdrawal</a>
+		   <a class="btn btn-primary" th:href="@{/admin/customer/fund_transfer?sender={id}(id=${customer.accountNumber} )}">Transfer</a>
     	
     	
     	

@@ -32,7 +32,45 @@ public class CustomerService {
     }
     
     public Customer getCustomerByAccountNumber(String accountNumber) {
-    	Customer customer = customerRepository.findByAccountNumber(accountNumber);
-    	return customer;
+    	return customerRepository.findByAccountNumber(accountNumber);
     }
+
+    
+    public boolean isSufficientBlance(String accountNumber, double amount) {
+    	
+    	Customer customer = this.getCustomerByAccountNumber(accountNumber);
+    	// check value must not be negative
+    	if ((customer.getAccountBalance() - amount) <= 0 ) {
+    		return false;
+    	}
+    	
+    	return true;
+    }
+    
+    
+    public int deductAmountFromSender(String accountNumber, double amount) {
+    	Customer customer = this.getCustomerByAccountNumber(accountNumber);
+    	if (customer != null) {
+    		double x = customer.getAccountBalance()-amount;
+    		customer.setAccountBalance(x);
+    		return 0;
+    	} else {
+    		return -1;
+    	}
+    }
+    
+    public int addAmountFromRecipient(String accountNumber, double amount) {
+
+    	Customer customer = this.getCustomerByAccountNumber(accountNumber);
+    	if (customer != null) {
+    		double x = customer.getAccountBalance()+amount;
+    		customer.setAccountBalance(x);
+    		return 0;
+    	} else {
+    		return -1;
+    	}
+    }
+    
+    
+    
 }
