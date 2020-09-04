@@ -72,5 +72,14 @@ public class CustomerService {
     }
     
     
+    public void closeAccount(String accountNumber) {
+    	Customer customer = this.getCustomerByAccountNumber(accountNumber);
+    	System.out.println(accountNumber+ "=================== ");
+    	if (customer != null) {
+    		customer.setAccountStatus("Closed");
+    	}
+    }
+    
+    
     
 }

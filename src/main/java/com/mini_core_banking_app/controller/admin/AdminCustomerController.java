@@ -42,8 +42,17 @@ public class AdminCustomerController {
 	@PostMapping("/admin/customer/add_new_account")
 	public String addNewAccount(@ModelAttribute("customer") Customer customer) {
 		
+		customer.setAccountStatus("Open");
 		customerService.save(customer);
 		return "redirect:/admin/customer/add?success";
+	}
+	
+	
+	@PostMapping("/admin/customer/close_account")
+	public String closeAccount(@RequestParam("accountNumber") String accountNumber) {
+		
+		customerService.closeAccount(accountNumber);
+		return "redirect:/admin/home?account_closed";
 	}
 	
 	

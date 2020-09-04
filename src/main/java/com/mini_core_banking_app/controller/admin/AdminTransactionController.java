@@ -47,10 +47,7 @@ public class AdminTransactionController {
 			@RequestParam("amount") String amount,
 			Transaction transaction )
 	{
-	
-		System.out.println(sender);
-		System.out.println(recipient);
-		System.out.println(amount);
+
 		
 		// check amount is > 0 first
 		Boolean amountIsNegativeOrZeroValue = transactionService.amountIsNegativeOrZeroValue(Float.parseFloat(amount));

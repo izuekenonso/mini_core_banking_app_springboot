@@ -58,24 +58,29 @@
 	                 <td th:text="${customer.accountBalance}"></td>
 	                
 	            </tr>
+	            
+	            <tr>
+	                <th>Account Status</th>
+	                 <td th:text="${customer.accountStatus}"></td>
+	                
+	            </tr>
+	            
 		  </table>
 		  
-		  
-		  
-		  <br/><br/>
-	       <hr>
-		   <a href="#">See All Transactions</a>
-		   
-		   
 		  
 	       <br/><br/>
 	       <h4>Operations</h4>
 	       <hr>
-		   <a class="btn btn-success" disabled href="#">Deposit</a>
-		   <a class="btn btn-info" disabled href="#">Withdrawal</a>
-		   <a class="btn btn-primary" th:href="@{/admin/customer/fund_transfer?sender={id}(id=${customer.accountNumber} )}">Transfer</a>
-    	
-    	
+	       <div class="col-md-12">
+			   <a class="btn btn-success" disabled href="#">Deposit</a>
+			   <a class="btn btn-info" disabled href="#">Withdrawal</a>
+			   <a class="btn btn-primary" th:href="@{/admin/customer/fund_transfer?sender={id}(id=${customer.accountNumber} )}">Transfer</a>
+	    	   
+	    	   <form th:action="@{/admin/customer/close_account}" method="post">
+	    	   		<input type="hidden" name="accountNumber" th:value="${customer.accountNumber}">
+	    	   		<button class="btn btn-danger">Close Account</button>
+	    	   </form>
+    	   </div>
     	
 		</div>
 	</div>

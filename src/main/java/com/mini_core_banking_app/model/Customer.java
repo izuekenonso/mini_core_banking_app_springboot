@@ -23,22 +23,31 @@ public class Customer {
 	private String email;
 	private String accountNumber;
 	private double accountBalance;
+	private String accountStatus;
+	
+	
+	
+
+
 //	@OneToMany(mappedBy = "customer")
 //    private List<Transaction> transactions;
-	
-	
+
+
 	public Customer() {
 
 	}
 
 
-	public Customer(String firstName, String lastName, String email, String accountNumber, double accountBalance) {
+	public Customer(Long id, String firstName, String lastName, String email, String accountNumber,
+			double accountBalance, String accountStatus) {
 		super();
+		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
 		this.accountNumber = accountNumber;
 		this.accountBalance = accountBalance;
+		this.accountStatus = accountStatus;
 	}
 
 
@@ -101,6 +110,13 @@ public class Customer {
 		this.accountBalance = accountBalance;
 	}
 	
-	
+	public String getAccountStatus() {
+		return accountStatus;
+	}
+
+
+	public void setAccountStatus(String accountStatus) {
+		this.accountStatus = accountStatus;
+	}
 	
 }
